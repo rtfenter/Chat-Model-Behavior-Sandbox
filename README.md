@@ -137,7 +137,7 @@ They also work well in interviews when walking someone through the sandbox.
 
 ## Top-k vs Top-p (Nucleus Sampling)
 
-A simple visual for understanding how each sampling method decides which tokens the model is allowed to choose from.
+```A simple visual for understanding how each sampling method decides which tokens the model is allowed to choose from.
 
 Token Probability Distribution (example)
 A: 0.35
@@ -164,6 +164,8 @@ Summary
 • Top-k = “Take the top k tokens.” (constant size)
 • Top-p = “Take tokens until probabilities add up to p.” (flexible size)
 • Both control how predictable or varied the model’s next token can be.
+
+```
 
 ---
 
