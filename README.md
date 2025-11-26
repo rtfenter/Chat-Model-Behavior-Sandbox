@@ -31,7 +31,7 @@ Instead of hand-waving, you can walk a recruiter or hiring manager through a cle
 
 ## Features (MVP)
 
-The first version will include:
+This prototype will include:
 
 - **Prompt input panel**  
   - Single text box for a user/system prompt  
@@ -204,7 +204,7 @@ Each one is intentionally small, legible, and easy to demo live in an interview.
 
 ## Status
 
-MVP UI and parameter behavior visualization planned.  
+MVP is implemented and active.  
 This sandbox will focus on clear, static front-end interactions that simulate model behavior patterns, not a full production LLM stack.
 
 ---
