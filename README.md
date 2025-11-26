@@ -135,6 +135,38 @@ They also work well in interviews when walking someone through the sandbox.
 
 ---
 
+## Top-k vs Top-p (Nucleus Sampling)
+
+A simple visual for understanding how each sampling method decides which tokens the model is allowed to choose from.
+
+Token Probability Distribution (example)
+A: 0.35
+B: 0.25
+C: 0.15
+D: 0.10
+E: 0.07
+F: 0.03
+
+Top-k
+------
+Choose the top k tokens by probability.
+If k = 3 → A, B, C are allowed.
+Fixed-width selection.
+
+Top-p (Nucleus Sampling)
+------------------------
+Choose the smallest set of tokens whose cumulative probability ≥ p.
+If p = 0.9 → A + B + C + D (0.35 + 0.25 + 0.15 + 0.10 = 0.85, add D to reach ≥ 0.9).
+Adaptive probability-based selection.
+
+Summary
+--------
+• Top-k = “Take the top k tokens.” (constant size)
+• Top-p = “Take tokens until probabilities add up to p.” (flexible size)
+• Both control how predictable or varied the model’s next token can be.
+
+---
+
 ## Why Chat Model Behavior Matters
 
 Model behavior isn’t just a research concern — it’s a **product** concern.
