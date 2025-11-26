@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat Model Behavior Sandbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Chat Model Behavior Sandbox</h1>
+      <p class="tagline">
+        See how chat model parameters change tone, length, creativity, and safety behavior.
+      </p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Left panel: Prompt + Parameters -->
+    <section class="panel panel-input">
+      <div class="panel-header">
+        <h2>Prompt & Parameters</h2>
+        <div class="panel-actions">
+          <button class="btn btn-secondary btn-preset" data-preset="explain">
+            Explain It Simply
+          </button>
+          <button class="btn btn-secondary btn-preset" data-preset="summarize">
+            Summarize Policy
+          </button>
+          <button class="btn btn-secondary btn-preset" data-preset="debug">
+            Debug This Code
+          </button>
+        </div>
+      </div>
+
+      <p class="help-text">
+        Enter a prompt, adjust the parameters, then click
+        <strong>Generate Comparison</strong> to see how model behavior shifts.
+      </p>
+
+      <textarea
+        id="prompt-input"
+        class="prompt-input"
+        spellcheck="false"
+        rows="8"
+        placeholder="Example: Explain retrieval-augmented generation (RAG) to a non-technical stakeholder..."
+      ></textarea>
+
+      <div class="parameters">
+        <div class="parameters-header">
+          <h3>Parameter Controls</h3>
+          <p class="help-text">
+            These are simplified versions of the knobs you’d configure on a real chat model.
+          </p>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="temperature">Temperature</label>
+              <span class="control-value" id="temperature-value">0.7</span>
+            </div>
+            <p class="control-help">
+              Higher values → more varied and creative responses; lower → more focused and predictable.
+            </p>
+            <input
+              type="range"
+              id="temperature"
+              min="0"
+              max="1"
+              step="0.1"
+              value="0.7"
+            />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="max-tokens">Max Tokens</label>
+              <span class="control-value" id="max-tokens-value">256</span>
+            </div>
+            <p class="control-help">
+              Rough limit on response length. Higher values allow longer, more detailed answers.
+            </p>
+            <input
+              type="range"
+              id="max-tokens"
+              min="64"
+              max="512"
+              step="32"
+              value="256"
+            />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="sampling-mode">Sampling Mode</label>
+              <span class="pill pill-muted" id="sampling-label">Top-p style</span>
+            </div>
+            <p class="control-help">
+              Conceptual sampling mode: toggle between narrower vs. wider token exploration.
+            </p>
+            <div class="toggle-group">
+              <button
+                type="button"
+                class="toggle-btn toggle-btn-active"
+                data-mode="top-p"
+                id="sampling-top-p"
+              >
+                Top-p
+              </button>
+              <button
+                type="button"
+                class="toggle-btn"
+                data-mode="top-k"
+                id="sampling-top-k"
+              >
+                Top-k
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="safety-mode">Safety Mode</label>
+              <span class="pill" id="safety-label">Standard</span>
+            </div>
+            <p class="control-help">
+              Simulates stricter guardrails. When enabled, unsafe prompts get more cautious responses.
+            </p>
+            <label class="switch">
+              <input type="checkbox" id="safety-mode" />
+              <span class="slider-round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <button id="generate-button" class="btn btn-primary">
+          Generate Comparison
+        </button>
+        <span id="prompt-status" class="parse-status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- Right panel: Responses + Summary -->
+    <section class="panel panel-results">
+      <div class="panel-header">
+        <h2>Behavior Comparison</h2>
+      </div>
+
+      <div id="summary" class="summary">
+        <div class="summary-badge summary-badge-idle">
+          No runs yet. Adjust the parameters and generate a comparison.
+        </div>
+      </div>
+
+      <div class="responses-layout">
+        <div class="response-column">
+          <div class="response-header">
+            <span class="response-label">Response A</span>
+            <span class="response-meta" id="meta-a">
+              Uses your chosen parameters.
+            </span>
+          </div>
+          <div class="response-body">
+            <p class="response-placeholder" id="response-a">
+              Waiting for first run.
+            </p>
+          </div>
+        </div>
+
+        <div class="response-column">
+          <div class="response-header">
+            <span class="response-label">Response B</span>
+            <span class="response-meta" id="meta-b">
+              Automatically adjusts parameters to highlight contrast.
+            </span>
+          </div>
+          <div class="response-body">
+            <p class="response-placeholder" id="response-b">
+              Waiting for first run.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="behavior-notes">
+        <h3>Behavior Notes</h3>
+        <p id="behavior-notes-text" class="behavior-text">
+          As you generate comparisons, this section will translate parameter shifts into plain-language observations you can use in interviews (e.g., “Higher temperature creates more varied phrasing, but also more rambling.”).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>
+      Part of the
+      <a href="https://github.com/rtfenter/AI-ML-UX-Systems-Series" target="_blank" rel="noreferrer">
+        AI &amp; ML UX Systems Series
+      </a>.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
