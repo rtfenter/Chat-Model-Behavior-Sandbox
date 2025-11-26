@@ -89,9 +89,8 @@ They also work well in interviews when walking someone through the sandbox.
 
 ## Demo Screenshot
 
-> _Screenshot placeholder — will be updated after MVP UI is implemented._
 
-<img width="2696" height="1552" alt="Screenshot – Chat Model Behavior Sandbox" src="https://github.com/user-attachments/placeholder-chat-model-sandbox.png" />
+<img width="2804" height="2174" alt="Screenshot 2025-11-26 at 16-36-14 Chat Model Behavior Sandbox" src="https://github.com/user-attachments/assets/b94827c0-9ed0-49d9-ba9c-e9c569270715" />
 
 ---
 
