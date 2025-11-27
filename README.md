@@ -31,7 +31,7 @@ Instead of hand-waving, you can walk a recruiter or hiring manager through a cle
 
 ## Features (MVP)
 
-This prototype will include:
+This prototype includes:
 
 - **Prompt input panel**  
   - Single text box for a user/system prompt  
