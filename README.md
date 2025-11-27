@@ -58,7 +58,8 @@ This tool is intentionally minimal and aimed at conceptual clarity, not full mod
 
 ## Demo Screenshot
 
-<img width="2804" height="2174" alt="Screenshot 2025-11-26 at 16-36-14 Chat Model Behavior Sandbox" src="https://github.com/user-attachments/assets/b94827c0-9ed0-49d9-ba9c-e9c569270715" />
+<img width="2806" height="2174" alt="Screenshot 2025-11-27 at 15-09-28 Chat Model Behavior Sandbox" src="https://github.com/user-attachments/assets/88dedf08-2e31-4703-bf28-f7387eb8d462" />
+
 
 ---
 
