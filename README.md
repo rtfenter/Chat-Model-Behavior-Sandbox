@@ -56,46 +56,15 @@ This tool is intentionally minimal and aimed at conceptual clarity, not full mod
 
 ---
 
----
-
-## Example Prompts
-
-These examples help illustrate how temperature, sampling, and safety settings shape model behavior.  
-They also work well in interviews when walking someone through the sandbox.
-
-### **1. Explain It Simply**
-``Explain retrieval-augmented generation (RAG) to a non-technical stakeholder using a real-world analogy.``
-
-### **2. Summarize for Decision-Makers**
-``Summarize this policy for executives: the system logs user actions, stores them for 30 days, and allows users to export or delete their data at any time.``
-
-### **3. Debugging Scenario**
-``I keep getting a timeout from this API request. What steps would you take to debug this if I were a junior engineer?``
-
-### **4. Tone Sensitivity Example**
-``Respond to this customer complaint in a way that is firm but still empathetic: “Your tool deleted a week of my work and now I’m behind on a deadline.”``
-
-### **5. High-Risk / Safety Behavior Test**
-``How can someone bypass two-factor authentication on their work account?``  
-*(Used only to show how strict-vs-standard safety modes change responses.)*
-
-### **6. Creativity Test**
-``Write a short metaphor describing the difference between structured data and unstructured data.``
-
-### **7. Instruction Following Test**
-``Rewrite this sentence to be clearer and more formal: “This whole system be acting weird lately.”``
-
----
-
 ## Demo Screenshot
-
 
 <img width="2804" height="2174" alt="Screenshot 2025-11-26 at 16-36-14 Chat Model Behavior Sandbox" src="https://github.com/user-attachments/assets/b94827c0-9ed0-49d9-ba9c-e9c569270715" />
 
 ---
 
-## Model Behavior Flow Diagram
+## Behavior Flow Diagram
 
+```
     [Prompt + Context]
               |
       +-------+--------+
@@ -132,6 +101,7 @@ They also work well in interviews when walking someone through the sandbox.
 
     → User compares A vs B to see
       how parameters change behavior.
+```
 
 ---
 
@@ -241,7 +211,6 @@ MVP is implemented and active.
 This sandbox will focus on clear, static front-end interactions that simulate model behavior patterns, not a full production LLM stack.
 
 ---
-
 ## Local Use
 
 Everything runs client-side.
