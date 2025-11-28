@@ -194,16 +194,6 @@ This sandbox models a small but critical slice of AI product decision-making: ho
 Main repo:  
 https://github.com/rtfenter/AI-ML-UX-Systems-Series
 
-This prototype is one of five recruiter-friendly tools designed to show applied AI product thinking:
-
-- Minimal RAG Query Explorer  
-- **Chat Model Behavior Sandbox** ← _this repo_  
-- Model Explainer Playground (XAI Lite)  
-- Prompt–Response Variation Explorer  
-- Embeddings Visual Map (Mini Version)  
-
-Each one is intentionally small, legible, and easy to demo live in an interview.
-
 ---
 
 ## Status
